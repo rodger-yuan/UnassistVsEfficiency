@@ -67,6 +67,10 @@
                 padding-right: 150px;
             }
 
+            path {
+                fill: grey;
+            }
+
             .title {
                 margin-left:145px;
                 margin-right:145px;
@@ -99,6 +103,16 @@
 
             .first-button {
                 margin-left: 170px
+            }
+
+            .arrow{
+                stroke-width:3;
+                stroke: grey;
+            }
+
+            #arrow{
+                stroke-width:1;
+                stroke-dasharray:0; 
             }
 
         </style>
@@ -198,10 +212,13 @@
                 <button type = "button" id = "2011-12MIA"> 2011-12 Miami Heat</button>
             </div>
             <div>
-                <button type = "button" class = "first-button" id = "2013-14SAS"> 2013-14 San Antonio Spurs</button>
+                <button type = "button" class = "first-button" id = "2012-13MIA"> 2012-13 Miami Heat</button>
+                <button type = "button" id = "2013-14SAS"> 2013-14 San Antonio Spurs</button>
                 <button type = "button" id = "2014-15GSW"> 2014-15 Golden State Warriors</button>
                 <button type = "button" id = "2015-16CLE"> 2015-16 Cleveland Cavaliers</button>
-                <button type = "button" id = "2016-17GSW"> 2016-17 Golden State Warriors</button>
+            </div>
+            <div>
+                <button type = "button" class = "first-button" id = "2016-17GSW"> 2016-17 Golden State Warriors</button>
             </div>
             <div id="scatter"></div>
             <script src="code/js/main.js"></script>
