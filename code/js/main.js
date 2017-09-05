@@ -98,6 +98,60 @@ function drawScatter() {
       .style("font-size", "40px")
       .attr("fill", "grey");
 
+    // arrows
+    defs = svg.append("defs")
+
+    var path = defs.append("marker")
+      .attr("id","arrow")
+      .attr("viewBox","0 -5 10 10")
+      .attr("refX",5)
+      .attr("refY",0)
+      .attr("markerWidth",4)
+      .attr("markerHeight",4)
+      .attr("orient","auto");
+
+    path.append("path")
+        .attr("d", "M0,-5L10,0L0,5")
+        .attr("class","arrowHead");
+
+    svg.append('line') // playmaker arrow
+      .attr("class", "arrow")
+      .attr("marker-end", "url(#arrow)")
+      .attr("x1", 250)
+      .attr("y1", 410)
+      .attr("x2", 300)
+      .attr("y2", 410);
+
+    svg.append('line') // efficiency arrow
+      .attr("class", "arrow")
+      .attr("marker-end", "url(#arrow)")
+      .attr("x1", 100)
+      .attr("y1", 350)
+      .attr("x2", 100)
+      .attr("y2", 300);
+
+    svg.append("text") // playmaker label
+      .text("Playmaking")
+      .attr("x", function(d) {
+        return 140;
+      })
+      .attr("y", function(d) {
+        return 415;
+      })
+      .style("font-size", "20px")
+      .attr("fill", "grey");
+
+    svg.append("text") // efficiency label
+      .text("Efficiency")
+      .attr("x", function(d) {
+        return 60;
+      })
+      .attr("y", function(d) {
+        return 380;
+      })
+      .style("font-size", "20px")
+      .attr("fill", "grey");
+
     // tooltips
     var div = d3.select("#scatter").append("div") 
       .attr("class", "tooltip")       
