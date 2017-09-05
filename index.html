@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>True Shooting % vs. Unassist Percentage</title> 
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+        <style>
+            hr {
+                margin-top:0px;
+                margin-bottom:2px;
+            }
+
+            h2 {
+                font-family: 'Roboto', san-serif;
+                margin-top:10px;
+            }
+            ul {
+                font-family: 'Roboto', san-serif;
+                font-size: 10pt;
+                margin-bottom:0px;
+                margin-top:5px;
+                margin-left: 145px;
+                margin-right:90px;
+            }
+
+            text {
+              font-size: 11px;
+              pointer-events: none;
+            }
+
+            rect {
+                fill: none;
+            }
+
+            g circle {
+                fill: none;
+            }   
+
+            div.tooltip {        
+                position: absolute;  
+                text-align: center;        
+                width: auto;                    
+                height: auto;                   
+                padding: 2px;               
+                font-size: 11px;    
+                font-weight: 700;
+                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; 
+                background: none; 
+                border: 0px;                
+                pointer-events: none;           
+            }
+
+            .title {
+                margin-left:145px;
+                margin-right:145px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .controls {
+                margin-left: 145px;
+                margin-top: 10px;
+                display:flex;
+                align-items:center;
+            }
+
+            .axis line, .axis path {
+                shape-rendering: crispEdges;
+                stroke: black;
+                fill: none;
+            }
+
+        </style>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://unpkg.com/d3fc/build/d3fc.min.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="title">
+                <h2>NBA TS vs UAST% </h2>
+                <h2><small>by rodger yuan</small></h2>
+            </div>
+            <hr>
+            <div>
+                <ul>
+                  <li>Each point represents a player who played in at > 30 games and averaged > 10 MIN/G.</li>
+                  <li>The radius of each point scales linearly with the MIN/G of the player.</li>
+                  <li>Hover over individual points to see the identity of individual points.</li>
+                  <li>All stats were obtained from stats.NBA.com.</li>
+                </ul> 
+            </div>
+            <div class="controls">
+                <select id="team" class="midAlign">
+                    <option value="ATL">Atlanta Hawks</option>
+                    <option value="BOS">Boston Celtics</option>
+                    <option value="BRK">Brooklyn Nets</option>
+                    <option value="CHI">Chicago Bulls</option>
+                    <option value="CHA">Charlotte Hornets</option>
+                    <option value="CLE">Cleveland Cavaliers</option>
+                    <option value="DAL">Dallas Mavericks</option>
+                    <option value="DEN">Denver Nuggets</option>
+                    <option value="DET">Detroit Pistons</option>
+                    <option value="GSW">Golden State Warriors</option>
+                    <option value="HOU">Houston Rockets</option>
+                    <option value="IND">Indiana Pacers</option>
+                    <option value="LAC">LA Clippers</option>
+                    <option value="LAL" selected = "selected">LA Lakers</option>
+                    <option value="MEM">Memphis Grizzlies</option>
+                    <option value="MIA">Miami Heat</option>
+                    <option value="MIL">Milwaukee Bucks</option>
+                    <option value="MIN">Minnesota Timberwolves</option>
+                    <option value="NOP">New Orleans Pelicans</option>
+                    <option value="NYK">New York Knicks</option>
+                    <option value="OKC">Oklahoma City Thunder</option>
+                    <option value="ORL">Orlando Magic</option>
+                    <option value="PHI">Philadelphia 76ers</option>
+                    <option value="PHX">Phoenix Suns</option>
+                    <option value="POR">Portland Trailblazers</option>
+                    <option value="SAC">Sacramento Kings</option>
+                    <option value="SAS">San Antonio Spurs</option>
+                    <option value="TOR">Toronto Raptors</option>
+                    <option value="UTA">Utah Jazz</option>
+                    <option value="WAS">Washington Wizards</option>
+                </select>
+                <select id="year" class="midAlign">
+                    <option value="2016-17">2016-2017</option>
+                    <option value="2015-16">2015-2016</option>
+                    <option value="2014-15">2014-2015</option>
+                    <option value="2013-14">2013-2014</option>
+                    <option value="2012-13">2012-2013</option>
+                    <option value="2011-12">2011-2012</option>
+                    <option value="2010-11">2010-2011</option>
+                    <option value="2009-10">2009-2010</option>
+                    <option value="2008-09">2008-2009</option>
+                    <option value="2007-08">2007-2008</option>
+                </select>
+            </div>
+            <div id="scatter"></div>
+            <script src="code/js/main.js"></script>
+        </div>
+    </body>
+</html>
