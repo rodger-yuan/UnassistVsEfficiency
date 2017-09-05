@@ -28,6 +28,10 @@
               pointer-events: none;
             }
 
+            select {
+                margin-right: 4px;
+            }
+
             rect {
                 fill: none;
             }
@@ -50,6 +54,19 @@
                 pointer-events: none;           
             }
 
+            button {
+                margin-top: -5px;
+                margin-bottom: 7px;
+                text-align: left;
+                display: inline-block;
+                width: 215px;
+                margin-right: 1px;
+            }
+
+            span {
+                padding-right: 150px;
+            }
+
             .title {
                 margin-left:145px;
                 margin-right:145px;
@@ -57,9 +74,19 @@
                 justify-content: space-between;
             }
 
+            .textbold {
+                font-family: 'Roboto', san-serif;
+                font-size: 10pt;
+                margin-bottom:5px;
+                margin-top:20px;
+                margin-left: 170px;
+                margin-right:90px;
+                font-weight: bolder;
+            }
+
             .controls {
-                margin-left: 145px;
-                margin-top: 10px;
+                margin-left: 170px;
+                margin-top: 0px;
                 display:flex;
                 align-items:center;
             }
@@ -70,17 +97,21 @@
                 fill: none;
             }
 
+            .first-button {
+                margin-left: 170px
+            }
+
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://unpkg.com/d3fc/build/d3fc.min.js"></script>
     </head>
     <body>
         <div class="container-fluid">
             <div class="title">
-                <h2>NBA TS vs UAST% </h2>
-                <h2><small>by rodger yuan</small></h2>
+                <h2>NBA TS% vs UAST% </h2>
+                <h2><small>by <a href="https://github.com/rodger-yuan">rodger yuan</a> </small></h2>
             </div>
-            <hr>
             <div>
                 <ul>
                   <li>Each point represents a player who played in at > 30 games and averaged > 10 MIN/G.</li>
@@ -88,6 +119,9 @@
                   <li>Hover over individual points to see the identity of individual points.</li>
                   <li>All stats were obtained from stats.NBA.com.</li>
                 </ul> 
+            </div>
+            <div class = "textbold">
+                <span> Team </span> <span> Year </span>
             </div>
             <div class="controls">
                 <select id="team" class="midAlign">
@@ -133,7 +167,41 @@
                     <option value="2009-10">2009-2010</option>
                     <option value="2008-09">2008-2009</option>
                     <option value="2007-08">2007-2008</option>
+                    <option value="2006-07">2006-2007</option>
+                    <option value="2005-06">2005-2006</option>
+                    <option value="2004-05">2004-2005</option>
+                    <option value="2003-04">2003-2004</option>
+                    <option value="2002-03">2002-2003</option>     
+                    <option value="2001-02">2001-2002</option>
+                    <option value="2000-01">2000-2001</option>                                   
                 </select>
+            </div>
+            <div class = "textbold">
+                <p> Championship Teams </p>
+            </div>
+            <div>
+                <button type = "button" class = "first-button" id = "2000-01LAL"> 2000-01 Los Angeles Lakers</button>
+                <button type = "button" id = "2001-02LAL"> 2001-02 Los Angeles Lakers</button>
+                <button type = "button" id = "2002-03SAS"> 2002-03 San Antonio Spurs</button>
+                <button type = "button" id = "2003-04DET"> 2003-04 Detroit Pistons</button>
+            </div>
+            <div>
+                <button type = "button" class = "first-button" id = "2004-05SAS"> 2004-05 San Antonio Spurs</button>
+                <button type = "button" id = "2005-06LAL"> 2005-06 Miami Heat</button>
+                <button type = "button" id = "2006-07SAS"> 2006-07 San Antonio Spurs</button>
+                <button type = "button" id = "2007-08BOS"> 2007-08 Boston Celtics</button>
+            </div>
+            <div>
+                <button type = "button" class = "first-button" id = "2008-09LAL" > 2008-09 Los Angeles Lakers</button>
+                <button type = "button" id = "2009-10LAL"> 2009-10 Los Angeles Lakers</button>
+                <button type = "button" id = "2010-11DAL"> 2010-11 Dallas Mavericks</button>
+                <button type = "button" id = "2011-12MIA"> 2011-12 Miami Heat</button>
+            </div>
+            <div>
+                <button type = "button" class = "first-button" id = "2013-14SAS"> 2013-14 San Antonio Spurs</button>
+                <button type = "button" id = "2014-15GSW"> 2014-15 Golden State Warriors</button>
+                <button type = "button" id = "2015-16CLE"> 2015-16 Cleveland Cavaliers</button>
+                <button type = "button" id = "2016-17GSW"> 2016-17 Golden State Warriors</button>
             </div>
             <div id="scatter"></div>
             <script src="code/js/main.js"></script>

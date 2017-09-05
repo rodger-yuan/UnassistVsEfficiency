@@ -21,6 +21,18 @@ d3.select('#team')
     drawScatter();
   });
 
+// update chart with button click
+d3.selectAll('button')
+  .on('click', function(){
+    var team = ( $(this).attr('id').slice(7,10) )
+    var year = ( $(this).attr('id').slice(0,7) )
+
+    $('#year').val(year)
+    $('#team').val(team)
+
+    drawScatter();
+  })
+
 function drawScatter() {
 
   d3.csv("data/" + d3.select("#year").property("value") + "_effvsts.csv", function(data) {
